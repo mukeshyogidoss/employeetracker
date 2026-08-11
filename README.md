@@ -1,50 +1,234 @@
-# Welcome to your Expo app 👋
+# 📍 Employee Visit Tracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile application for managing employee/client visits. The app allows employees to log in, capture client visit details, get their current location, and store visit information locally.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+* 🔐 User Login
+* 💾 Persistent login using AsyncStorage
+* 🚪 Logout
+* 👤 Client name entry
+* 📱 Client phone number entry
+* 📅 Visit date
+* 📍 Current GPS location
+* 📝 Visit remarks
+* 💾 Save visit details locally using AsyncStorage
+* 🗂️ Store multiple visit records
+* 🌐 Backend API integration
+* 🍃 MongoDB database integration
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Technologies Used
 
-2. Start the app
+### Mobile App
 
-   ```bash
-   npx expo start
-   ```
+* React Native
+* Expo
+* Expo Router
+* JavaScript
+* AsyncStorage
+* Expo Location
+* Axios
 
-In the output, you'll find options to open the app in a
+### Backend
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* REST API
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+EmployeeVisitTracker/
+│
+├── app/
+│   ├── index.tsx
+│   ├── HomeScreen.js
+│   └── _layout.tsx
+│
+├── assets/
+│   └── images/
+│       └── employee.jpg
+│
+├── backend/
+│   ├── app.js
+│   ├── controllers/
+│   │   └── userController.js
+│   ├── model/
+│   │   └── userModel.js
+│   ├── routes/
+│   │   └── users.js
+│   ├── package.json
+│   └── .env
+│
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## ⚙️ Installation
 
-## Learn more
+### 1. Clone the repository
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+git clone https://github.com/mukeshyogidoss/employeetracker.git
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 2. Go to the project
 
-## Join the community
+```bash
+cd employeetracker
+```
 
-Join our community of developers creating universal apps.
+### 3. Install mobile app dependencies
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm install
+```
+
+### 4. Install backend dependencies
+
+```bash
+cd backend
+npm install
+```
+
+## 🔐 Environment Variables
+
+Create a `.env` file inside the `backend` folder:
+
+```env
+PORT=8080
+MONGO_URL=your_mongodb_connection_string
+```
+
+⚠️ Do not upload `.env` to GitHub.
+
+Add this to `.gitignore`:
+
+```text
+node_modules/
+.env
+backend/.env
+.expo/
+```
+
+## ▶️ Run the Backend
+
+From the `backend` folder:
+
+```bash
+node app.js
+```
+
+Or, if you have a development script:
+
+```bash
+npm run dev
+```
+
+The backend will run on:
+
+```text
+http://localhost:8080
+```
+
+## ▶️ Run the React Native App
+
+From the main project folder:
+
+```bash
+npx expo start
+```
+
+Then open the application using:
+
+* Expo Go
+* Android Emulator
+* Physical Android device
+
+### 📱 Physical Device
+
+Make sure your phone and computer are connected to the **same Wi-Fi network**.
+
+For API requests from the phone, use your computer's local IP address instead of `localhost`.
+
+Example:
+
+```text
+http://192.168.1.8:8080
+```
+
+## 💾 Visit Data
+
+When a visit is saved, the application stores the visit information in AsyncStorage.
+
+Example:
+
+```json
+{
+  "id": "1754912345678",
+  "clientName": "ABC Company",
+  "phone": "9876543210",
+  "visitDate": "11/08/2026",
+  "location": {
+    "latitude": 13.0478,
+    "longitude": 80.0442
+  },
+  "remark": "Discussed new project"
+}
+```
+
+Multiple visits can be stored locally.
+
+## 🔄 Application Flow
+
+```text
+Login
+  ↓
+Save User in AsyncStorage
+  ↓
+Home Screen
+  ↓
+Request Location Permission
+  ↓
+Get Current Location
+  ↓
+Enter Client Details
+  ↓
+Save Visit
+  ↓
+Store Visit in AsyncStorage
+  ↓
+Logout
+```
+
+## 🔮 Future Improvements
+
+* 🗺️ Display location on Google Maps
+* ☁️ Store visit records in MongoDB
+* 🔄 Sync local visits with backend
+* 👥 Employee management
+* 📊 Visit history screen
+* 🔎 Search and filter visits
+* 📝 Edit and delete visits
+* 🔔 Visit reminders
+* 🔑 JWT authentication
+
+## 👨‍💻 Author
+
+**Mukesh Y**
+
+React Native Developer
+
+GitHub: https://github.com/mukeshyogidoss
+
+Portfolio: https://mukesh-portfolio-sigma-beige.vercel.app/
+
+## 📄 License
+
+This project is created for learning and development purposes.
+
+```
+```
