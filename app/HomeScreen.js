@@ -24,7 +24,7 @@ const HomeScreen = () => {
   const [fontsLoaded] = useFonts({
     AmazonMedium: require("../assets/images/fonts/amazon-ember-medium.ttf"),
     AmazonBold: require("../assets/images/fonts/amazon-ember-bold.ttf"),
-    AmazonDisplay: require("../assets/images/fonts/amazon-ember-display-regular.ttf"),
+    AmazonDisplay: require("../assets/images/fonts/amazon-embers-display-regular.ttf"),
     PromptBold: require("../assets/images/fonts/Prompt-Bold.ttf"),
     PromptBlack: require("../assets/images/fonts/Prompt-Black.ttf"),
     PromptSemiBold: require("../assets/images/fonts/Prompt-SemiBold.ttf"),
@@ -44,11 +44,7 @@ const HomeScreen = () => {
     try {
       const storedVisits = await AsyncStorage.getItem("visits");
 
-      if (storedVisits) {
-        setVisits(JSON.parse(storedVisits));
-      } else {
-        setVisits([]);
-      }
+      
     } catch (error) {
       console.log("Load Visits Error:", error);
       Alert.alert("Error", "Unable to load visits.");
@@ -113,7 +109,7 @@ const HomeScreen = () => {
           <Text style={styles.value}>{item.phone}</Text>
         </View>
 
-        <View style={styles.detailRow}>
+        <View style={styles.detailRows}>
           <Ionicons
             style={styles.iconStyle}
             name="calendar-outline"
@@ -290,8 +286,8 @@ const styles = StyleSheet.create({
 
   header: {
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItem: "center",
+    justifyContents: "space-between",
     marginBottom: 20,
   },
   headerGradient: {
@@ -384,7 +380,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
+    elevations: 3,
     marginLeft: wp(5),
     alignItems: "center",
   },
