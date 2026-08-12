@@ -1,234 +1,93 @@
-# 📍 Employee Visit Tracker
+# Employee Visit Tracker
 
-A React Native mobile application for managing employee/client visits. The app allows employees to log in, capture client visit details, get their current location, and store visit information locally.
+A React Native mobile application for employees to manage and track their client visits.
 
-## 🚀 Features
+The app allows employees to add client visit details, capture their current location, search saved clients, update visit information, and delete visits. All visit data is stored locally using AsyncStorage.
 
-* 🔐 User Login
-* 💾 Persistent login using AsyncStorage
-* 🚪 Logout
-* 👤 Client name entry
-* 📱 Client phone number entry
-* 📅 Visit date
-* 📍 Current GPS location
-* 📝 Visit remarks
-* 💾 Save visit details locally using AsyncStorage
-* 🗂️ Store multiple visit records
-* 🌐 Backend API integration
-* 🍃 MongoDB database integration
+## Features
 
-## 🛠️ Technologies Used
+- User Login
+- Email and password validation
+- Password visibility toggle
+- Add new client visit
+- Edit client visit details
+- Delete client visits
+- Search clients by name
+- Visit status (Pending / Completed)
+- Phone number validation
+- Date validation
+- Current location tracking
+- Local data storage using AsyncStorage
+- Custom fonts
+- Lottie animation
+- Responsive UI
 
-### Mobile App
+## Technologies Used
 
-* React Native
-* Expo
-* Expo Router
-* JavaScript
-* AsyncStorage
-* Expo Location
-* Axios
+- React Native
+- Expo
+- JavaScript
+- Expo Router
+- AsyncStorage
+- Expo Location
+- Expo Font
+- Lottie React Native
+- React Native Responsive Screen
+- Expo Vector Icons
 
-### Backend
+## Main Functionality
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* REST API
+### Login
 
-## 📂 Project Structure
+The application provides a login screen with:
 
-```text
-EmployeeVisitTracker/
-│
-├── app/
-│   ├── index.tsx
-│   ├── HomeScreen.js
-│   └── _layout.tsx
-│
-├── assets/
-│   └── images/
-│       └── employee.jpg
-│
-├── backend/
-│   ├── app.js
-│   ├── controllers/
-│   │   └── userController.js
-│   ├── model/
-│   │   └── userModel.js
-│   ├── routes/
-│   │   └── users.js
-│   ├── package.json
-│   └── .env
-│
-├── package.json
-├── package-lock.json
-└── README.md
-```
+- Email validation
+- Password validation
+- Password show/hide option
+- Local login state using AsyncStorage
 
-## ⚙️ Installation
+### Visit Management
 
-### 1. Clone the repository
+Employees can create a visit with:
 
-```bash
-git clone https://github.com/mukeshyogidoss/employeetracker.git
-```
+- Client Name
+- Phone Number
+- Visit Date
+- Current Location
+- Remark
+- Visit Status
 
-### 2. Go to the project
+### CRUD Operations
 
-```bash
-cd employeetracker
-```
+Visit data is managed using AsyncStorage.
 
-### 3. Install mobile app dependencies
+**Create**
 
-```bash
-npm install
-```
+Add a new client visit.
 
-### 4. Install backend dependencies
+**Read**
 
-```bash
-cd backend
-npm install
-```
+Display all saved client visits on the Home Screen.
 
-## 🔐 Environment Variables
+**Update**
 
-Create a `.env` file inside the `backend` folder:
+Edit existing client visit details.
 
-```env
-PORT=8080
-MONGO_URL=your_mongodb_connection_string
-```
+**Delete**
 
-⚠️ Do not upload `.env` to GitHub.
+Delete a client visit after confirmation.
 
-Add this to `.gitignore`:
+### Search
+
+The Home Screen provides a search bar to search for clients by name.
+
+### Location
+
+The application requests location permission and captures the employee's current latitude and longitude when creating a visit.
+
+## Data Storage
+
+The application currently uses:
 
 ```text
-node_modules/
-.env
-backend/.env
-.expo/
-```
-
-## ▶️ Run the Backend
-
-From the `backend` folder:
-
-```bash
-node app.js
-```
-
-Or, if you have a development script:
-
-```bash
-npm run dev
-```
-
-The backend will run on:
-
-```text
-http://localhost:8080
-```
-
-## ▶️ Run the React Native App
-
-From the main project folder:
-
-```bash
-npx expo start
-```
-
-Then open the application using:
-
-* Expo Go
-* Android Emulator
-* Physical Android device
-
-### 📱 Physical Device
-
-Make sure your phone and computer are connected to the **same Wi-Fi network**.
-
-For API requests from the phone, use your computer's local IP address instead of `localhost`.
-
-Example:
-
-```text
-http://192.168.1.8:8080
-```
-
-## 💾 Visit Data
-
-When a visit is saved, the application stores the visit information in AsyncStorage.
-
-Example:
-
-```json
-{
-  "id": "1754912345678",
-  "clientName": "ABC Company",
-  "phone": "9876543210",
-  "visitDate": "11/08/2026",
-  "location": {
-    "latitude": 13.0478,
-    "longitude": 80.0442
-  },
-  "remark": "Discussed new project"
-}
-```
-
-Multiple visits can be stored locally.
-
-## 🔄 Application Flow
-
-```text
-Login
-  ↓
-Save User in AsyncStorage
-  ↓
-Home Screen
-  ↓
-Request Location Permission
-  ↓
-Get Current Location
-  ↓
-Enter Client Details
-  ↓
-Save Visit
-  ↓
-Store Visit in AsyncStorage
-  ↓
-Logout
-```
-
-## 🔮 Future Improvements
-
-* 🗺️ Display location on Google Maps
-* ☁️ Store visit records in MongoDB
-* 🔄 Sync local visits with backend
-* 👥 Employee management
-* 📊 Visit history screen
-* 🔎 Search and filter visits
-* 📝 Edit and delete visits
-* 🔔 Visit reminders
-* 🔑 JWT authentication
-
-## 👨‍💻 Author
-
-**Mukesh Y**
-
-React Native Developer
-
-GitHub: https://github.com/mukeshyogidoss
-
-Portfolio: https://mukesh-portfolio-sigma-beige.vercel.app/
-
-## 📄 License
-
-This project is created for learning and development purposes.
-
-```
-```
+AsyncStorage
